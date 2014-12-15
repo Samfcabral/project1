@@ -1,6 +1,7 @@
 body {
 	background: url("/images/background.jpg");
 	background-repeat: no-repeat;
+	min-height: 1000px;
 
 }
 

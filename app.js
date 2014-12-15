@@ -72,26 +72,21 @@ app.get("/", function (req, res) {
 // Create a handler to respond to GET requests
 // to our search page ("/search").
 app.get('/search', function(req, res){
-
   // Grab the address title from the URL query string.
   var address = req.query.address;
   // Grab the address title from the URL query string.
   var citystatezip = req.query.citystatezip;
-
   // Build the URL that we're going to call.
   // SAMPLE call from ZILLOW http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=<ZWSID>&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA
   var url = "http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=<X1-ZWz1dzv5l0hkaz_6h6e1>&address=" + address + "citystatezip="+ citystatezip;
-
   // Call the OMDB API searching for the movie.
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-
       // The body is a big string of JSON. We want to
       // turn it into an Object so we can more easily
       // dig into it.
       var obj = JSON.parse(body);
       console.log(body);
-
       // Render a template (results.ejs) and pass it
       // the search results and call them "movieList".
       //http://localhost:3000/show?movieID=tt0301357
