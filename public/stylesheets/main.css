@@ -1,4 +1,4 @@
-.site-wrapper {
+body {
 	background: url("/images/background.jpg");
 	background-repeat: no-repeat;
 
@@ -8,4 +8,14 @@ input[type="text"] {
     width: 500px;
     height: 40px;
     margin-left: 400px;
+}
+
+.cover-heading {
+	color: white;
+	margin-left: 400px;
+}
+
+.lead {
+	color: white;
+	margin-left: 400px;
 }
