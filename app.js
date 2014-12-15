@@ -59,14 +59,83 @@ passport.deserializeUser(function(id, done){
     });
 });
 
-// WHEN SOMEONE WANTS THE SIGNUP PAGE
-app.get("/sign_up", function (req, res) {
-  res.render("users/sign_up");
-});
-
 // HOME PAGE
 app.get("/", function (req, res) {
   res.render("index");
+});
+
+// WHEN SOMEONE WANTS THE SIGNUP PAGE
+app.get("/users/register", function (req, res) {
+  res.render("users/register");
+});
+
+// WHEN SOMEONE  SUBMITS A SIGNUP PAGE
+app.post("/users", function (req, res) {
+  console.log("POST /users");
+  var newUser = req.body.user;
+  console.log("New User:", newUser);
+  // CREATE a user and secure their password
+  db.user.createSecure(newUser.email, newUser.password, 
+    function () {
+      // if a user fails to create make them signup again
+      res.redirect("/");
+    },
+    function (err, user) {
+      // when successfully created log the user in
+      // req.login is given by the passport
+      req.login(user, function(){
+        // after login redirect show page
+        console.log("Id: ", user.id)
+        res.redirect("/");
+      });
+    })
+});
+
+app.get("/users/:id", function (req, res) {
+  var id = req.params.id;
+  db.user.find(id)
+    .then(function (user) {
+      res.render("users/show", {user: user});
+    })
+    .error(function () {
+      res.redirect("/register");
+    })
+});
+
+// WHEN SOMEONE WANTS THE LOGIN PAGE
+app.get("/login", function (req, res) {
+  res.render("users/login");
+});
+
+// AUTHENTICATING A USER
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login'
+}));
+
+app.get("/logout", function (req, res) {
+  // LOG OUT
+  req.logout();
+  res.redirect("/");
+});
+
+app.get("/", function (req, res) {
+  console.log(req.user)
+  // REQ.USER IS THE USER CURRENTLY LOGGED IN
+
+  if (req.user) {
+    res.render("site/index", {user: req.user});
+  } else {
+    res.render("site/index", {user: false});
+  }
+});
+
+app.get("/users/show", function (req, res) {
+  res.render("users/show");
+});
+
+app.get("/users/login", function (req, res) {
+  res.render("users/login");
 });
 
 // Create a handler to respond to GET requests
@@ -94,19 +163,6 @@ app.get('/search', function(req, res){
     }
   });
 });
-
-app.get("/users/show", function (req, res) {
-  res.render("users/show");
-});
-
-app.get("/users/login", function (req, res) {
-  res.render("users/login");
-});
-
-app.get("/users/register", function (req, res) {
-  res.render("users/register");
-});
-
 
 db.sequelize.sync().then(function() {
   var server = app.listen(3000, function() {

@@ -43,7 +43,7 @@ request('http://www.zillow.com/webservice/GetZestimate.htm?zws-id=<X1-ZWz1dzv5l0
 //var q = require('q')
 //var Zillow = require('node-zillow')
 //var zillow = new Zillow('X1-ZWz1dzv5l0hkaz_6h6e1')
-//var params = { address: '225 Bush St', city: 'San Francisco', state: 'CA', zip: '94104'}
+//var params = { address: '20301 West Country Club Drive Apt 627', city: 'Aventura', state: 'FL', zip: '33180'}
 //var x = zillow.getDeepSearchResults(params)
 
 //Using promises
