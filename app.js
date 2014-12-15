@@ -91,17 +91,6 @@ app.post("/users", function (req, res) {
     })
 });
 
-app.get("/users/:id", function (req, res) {
-  var id = req.params.id;
-  db.user.find(id)
-    .then(function (user) {
-      res.render("users/show", {user: user});
-    })
-    .error(function () {
-      res.redirect("/register");
-    })
-});
-
 // WHEN SOMEONE WANTS THE LOGIN PAGE
 app.get("/login", function (req, res) {
   res.render("users/login");
