@@ -57,8 +57,30 @@
         <h1>Property details</h1>
         <p>Price estimate:        </p>
         <p>Rent estimate:        </p>
-        
       </div>
+
+    <!-- The results come in here -->
+      <div>
+        <% movieList.forEach(function (film) {%>
+        <% var testVar = "<b>This is a test of escaping!</b>"; %>
+
+        <!-- Only show the results that are movies -->
+        <!-- (i.e., do not show TV shows) -->
+        <% if (film.Type === "movie") { %>
+
+        <!-- Show the title and the imdbID -->
+        <!--href="/show?movieID=tt0301357"-->
+        <li><a href="/show/<%=film.imdbID%>"><%= film.Title %></a></li>
+        <!-- Close the `if` -->
+        <% } %>
+        <!-- Close the `forEach` -->
+        <% }) %>
+
+
+
+      </div>
+    <!-- End of resutls -->
+
 
     </div> <!-- /container -->
 
