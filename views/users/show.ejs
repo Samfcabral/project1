@@ -61,16 +61,16 @@
 
     <!-- The results come in here -->
       <div>
-        <% movieList.forEach(function (film) {%>
+        <% movieList.forEach(function (property) {%>
         <% var testVar = "<b>This is a test of escaping!</b>"; %>
 
         <!-- Only show the results that are movies -->
         <!-- (i.e., do not show TV shows) -->
-        <% if (film.Type === "movie") { %>
+        <% if (property.Type === "movie") { %>
 
         <!-- Show the title and the imdbID -->
         <!--href="/show?movieID=tt0301357"-->
-        <li><a href="/show/<%=film.imdbID%>"><%= film.Title %></a></li>
+        <li><a href="/show/<%=results%>"><%= property.Title %></a></li>
         <!-- Close the `if` -->
         <% } %>
         <!-- Close the `forEach` -->

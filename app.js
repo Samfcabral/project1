@@ -95,7 +95,7 @@ app.get('/search', function(req, res){
       // Render a template (results.ejs) and pass it
       // the search results and call them "movieList".
       //http://localhost:3000/show?movieID=tt0301357
-      res.render("users/show", {adressList: obj.Search});
+      res.render("users/show", {adressList: obj.zestimate});
     }
   });
 });
