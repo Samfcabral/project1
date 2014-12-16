@@ -135,11 +135,12 @@ app.get('/search', function(req,res) {
     var zip = req.query.zip;
     var params = { address: address, city: city, state: state, zip: zip}
     console.log(params);
-    var x = zillow.getDeepSearchResults(params)
+    var x = zillow.getDeepSearchResults(params) 
     console.log(x);
     var z = x.then(function(results) {
         res.render('users/show', {amount: results.valueOf().response[0].results[0].result[0].zestimate[0].amount});
     })
+    console.log(z);
 });
 
 app.get("users/show", function (req, res) {
