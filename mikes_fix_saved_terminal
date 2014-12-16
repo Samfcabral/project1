@@ -1,0 +1,361 @@
+Last login: Mon Dec 15 16:31:12 on console
+Samuels-MacBook-Pro-2:~ samuelcabral$ ls
+Applications
+Desktop
+Documents
+Downloads
+Empleosroyalholiday - DV links DS-brothers.txt
+Library
+Movies
+Music
+Pictures
+Public
+Sites
+bash_profile
+commanlinemystery
+dashboard_stylesheet.css
+ibt_application.log
+ibtsa.log
+my_file.txt
+oasys.log
+stylesheet.css
+Samuels-MacBook-Pro-2:~ samuelcabral$ cd Sites/
+Samuels-MacBook-Pro-2:Sites samuelcabral$ ls
+Art Biz				artbiz
+Art Biz Front End		html5-boilerplate-4.3.0
+Art Biz Template		php_class
+Art Biz new css			real_estate_pricing
+Website Design HTML & CSS
+Samuels-MacBook-Pro-2:Sites samuelcabral$ cd real_estate_pricing/
+Samuels-MacBook-Pro-2:real_estate_pricing samuelcabral$ ls
+README.md		migrations		public
+app.js			models			sample_api_calls.js
+bower_components	node_modules		views
+config			package.json
+Samuels-MacBook-Pro-2:real_estate_pricing samuelcabral$ cat package.json 
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "project1 ========",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Samfcabral/project1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Samfcabral/project1/issues"
+  },
+  "homepage": "https://github.com/Samfcabral/project1",
+  "dependencies": {
+    "bcrypt": "^0.8.0",
+    "body-parser": "^1.10.0",
+    "cookie-session": "^1.1.0",
+    "ejs": "^1.0.0",
+    "express": "^4.10.5",
+    "method-override": "^2.3.0",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
+    "pg": "^4.1.0",
+    "request": "^2.51.0",
+    "sequelize": "^2.0.0-rc3"
+  }
+}
+Samuels-MacBook-Pro-2:real_estate_pricing samuelcabral$ npm install --save node-zillow
+node-zillow@0.0.2 node_modules/node-zillow
+├── dotenv@0.4.0
+└── xml2js@0.4.4 (sax@0.6.1, xmlbuilder@2.4.5)
+Samuels-MacBook-Pro-2:real_estate_pricing samuelcabral$ subl .
+Samuels-MacBook-Pro-2:real_estate_pricing samuelcabral$ node
+> var Zillow = require('node-zillow')
+undefined
+> var zillow = new Zillow('X1-ZWz1dzv5l0hkaz_6h6e1')
+undefined
+> var params = { address: '20301 West Country Club Drive Apt 627', city: 'Aventura', state: 'FL', zip: '33180'}
+undefined
+> var x = zillow.getDeepSearchResults(params)
+undefined
+> x.t
+x.toLocaleString  x.toString        
+
+x.tap             x.then            x.thenReject      x.thenResolve     x.timeout         
+
+> x.t
+x.toLocaleString  x.toString        
+
+x.tap             x.then            x.thenReject      x.thenResolve     x.timeout         
+
+> x.
+x.__defineGetter__      x.__defineSetter__      x.__lookupGetter__      x.__lookupSetter__      x.constructor           x.hasOwnProperty        x.isPrototypeOf         x.propertyIsEnumerable
+x.toLocaleString        x.toString              x.valueOf               
+
+x.all                   x.allResolved           x.allSettled            x.catch                 x.del                   x.delay                 x.delete                x.denodeify
+x.dispatch              x.done                  x.fail                  x.fapply                x.fbind                 x.fcall                 x.fin                   x.finally
+x.get                   x.invoke                x.isFulfilled           x.isPending             x.isRejected            x.join                  x.keys                  x.mapply
+x.mcall                 x.nbind                 x.nfapply               x.nfbind                x.nfcall                x.ninvoke               x.nmapply               x.nmcall
+x.nodeify               x.npost                 x.nsend                 x.passByCopy            x.post                  x.progress              x.race                  x.send
+x.set                   x.spread                x.tap                   x.then                  x.thenReject            x.thenResolve           x.timeout               
+
+x.inspect               x.promiseDispatch       x.source                
+
+> x.th
+x.then         x.thenReject   x.thenResolve  
+
+> var z = x.then(function(restults) { return results;})
+undefined
+> z
+[object Object]
+> z.
+z.__defineGetter__      z.__defineSetter__      z.__lookupGetter__      z.__lookupSetter__      z.constructor           z.hasOwnProperty        z.isPrototypeOf         z.propertyIsEnumerable
+z.toLocaleString        z.toString              z.valueOf               
+
+z.all                   z.allResolved           z.allSettled            z.catch                 z.del                   z.delay                 z.delete                z.denodeify
+z.dispatch              z.done                  z.fail                  z.fapply                z.fbind                 z.fcall                 z.fin                   z.finally
+z.get                   z.invoke                z.isFulfilled           z.isPending             z.isRejected            z.join                  z.keys                  z.mapply
+z.mcall                 z.nbind                 z.nfapply               z.nfbind                z.nfcall                z.ninvoke               z.nmapply               z.nmcall
+z.nodeify               z.npost                 z.nsend                 z.passByCopy            z.post                  z.progress              z.race                  z.send
+z.set                   z.spread                z.tap                   z.then                  z.thenReject            z.thenResolve           z.timeout               
+
+z.inspect               z.promiseDispatch       z.source                
+
+> z.in
+z.invoke   
+
+z.inspect  
+
+> z.inspect
+[Function]
+> z.inspect()
+{ state: 'rejected',
+  reason: [ReferenceError: results is not defined] }
+> z
+[object Object]
+> console.log(z)
+[object Object]
+undefined
+> console.
+console.__defineGetter__      console.__defineSetter__      console.__lookupGetter__      console.__lookupSetter__      console.constructor           console.hasOwnProperty
+console.isPrototypeOf         console.propertyIsEnumerable  console.toLocaleString        console.toString              console.valueOf               
+
+console.assert                console.dir                   console.error                 console.info                  console.log                   console.time
+console.timeEnd               console.trace                 console.warn                  
+
+console.Console               console._stderr               console._stdout               console._times                
+
+> console.dir(z)
+[object Object]
+undefined
+> var z = x.then(function(restults) { console.log(results); })
+undefined
+> z
+[object Object]
+> x.
+x.__defineGetter__      x.__defineSetter__      x.__lookupGetter__      x.__lookupSetter__      x.constructor           x.hasOwnProperty        x.isPrototypeOf         x.propertyIsEnumerable
+x.toLocaleString        x.toString              x.valueOf               
+
+x.all                   x.allResolved           x.allSettled            x.catch                 x.del                   x.delay                 x.delete                x.denodeify
+x.dispatch              x.done                  x.fail                  x.fapply                x.fbind                 x.fcall                 x.fin                   x.finally
+x.get                   x.invoke                x.isFulfilled           x.isPending             x.isRejected            x.join                  x.keys                  x.mapply
+x.mcall                 x.nbind                 x.nfapply               x.nfbind                x.nfcall                x.ninvoke               x.nmapply               x.nmcall
+x.nodeify               x.npost                 x.nsend                 x.passByCopy            x.post                  x.progress              x.race                  x.send
+x.set                   x.spread                x.tap                   x.then                  x.thenReject            x.thenResolve           x.timeout               
+
+x.inspect               x.promiseDispatch       x.source                
+
+> x.all
+[Function]
+> x.all()
+[object Object]
+> x.toString()
+'[object Promise]'
+> z.
+z.__defineGetter__      z.__defineSetter__      z.__lookupGetter__      z.__lookupSetter__      z.constructor           z.hasOwnProperty        z.isPrototypeOf         z.propertyIsEnumerable
+z.toLocaleString        z.toString              z.valueOf               
+
+z.all                   z.allResolved           z.allSettled            z.catch                 z.del                   z.delay                 z.delete                z.denodeify
+z.dispatch              z.done                  z.fail                  z.fapply                z.fbind                 z.fcall                 z.fin                   z.finally
+z.get                   z.invoke                z.isFulfilled           z.isPending             z.isRejected            z.join                  z.keys                  z.mapply
+z.mcall                 z.nbind                 z.nfapply               z.nfbind                z.nfcall                z.ninvoke               z.nmapply               z.nmcall
+z.nodeify               z.npost                 z.nsend                 z.passByCopy            z.post                  z.progress              z.race                  z.send
+z.set                   z.spread                z.tap                   z.then                  z.thenReject            z.thenResolve           z.timeout               
+
+z.inspect               z.promiseDispatch       z.source                
+
+> z.in
+z.invoke   
+
+z.inspect  
+
+> z.inspect
+[Function]
+> z.inspect()
+{ state: 'rejected',
+  reason: [ReferenceError: results is not defined] }
+> x.inspect
+[Function]
+> x.inspect()
+{ state: 'fulfilled',
+  value: 
+   { '$': 
+      { 'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+        'xsi:schemaLocation': 'http://www.zillow.com/static/xsd/SearchResults.xsd http://www.zillowstatic.com/vstatic/361410a/static/xsd/SearchResults.xsd',
+        'xmlns:SearchResults': 'http://www.zillow.com/static/xsd/SearchResults.xsd' },
+     request: [ [Object] ],
+     message: [ [Object] ],
+     response: [ [Object] ] } }
+> x.valueOf
+[Function]
+> x.valueOf()
+{ '$': 
+   { 'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+     'xsi:schemaLocation': 'http://www.zillow.com/static/xsd/SearchResults.xsd http://www.zillowstatic.com/vstatic/361410a/static/xsd/SearchResults.xsd',
+     'xmlns:SearchResults': 'http://www.zillow.com/static/xsd/SearchResults.xsd' },
+  request: 
+   [ { address: [Object],
+       citystatezip: [Object] } ],
+  message: [ { text: [Object], code: [Object] } ],
+  response: [ { results: [Object] } ] }
+> z.valueOf()
+[object Object]
+> z.valueOf()
+[object Object]
+> var z = x.then(function(restults) { console.log(results.valueOf()); })
+undefined
+> z
+[object Object]
+> var z = x.then(function(restults) { return results.valueOf(); })
+undefined
+> z
+[object Object]
+> z.
+z.__defineGetter__      z.__defineSetter__      z.__lookupGetter__      z.__lookupSetter__      z.constructor           z.hasOwnProperty        z.isPrototypeOf         z.propertyIsEnumerable
+z.toLocaleString        z.toString              z.valueOf               
+
+z.all                   z.allResolved           z.allSettled            z.catch                 z.del                   z.delay                 z.delete                z.denodeify
+z.dispatch              z.done                  z.fail                  z.fapply                z.fbind                 z.fcall                 z.fin                   z.finally
+z.get                   z.invoke                z.isFulfilled           z.isPending             z.isRejected            z.join                  z.keys                  z.mapply
+z.mcall                 z.nbind                 z.nfapply               z.nfbind                z.nfcall                z.ninvoke               z.nmapply               z.nmcall
+z.nodeify               z.npost                 z.nsend                 z.passByCopy            z.post                  z.progress              z.race                  z.send
+z.set                   z.spread                z.tap                   z.then                  z.thenReject            z.thenResolve           z.timeout               
+
+z.inspect               z.promiseDispatch       z.source                
+
+> z.i
+z.isPrototypeOf  
+
+z.invoke         z.isFulfilled    z.isPending      z.isRejected     
+
+z.inspect        
+
+> z.in
+z.invoke   
+
+z.inspect  
+
+> z.inspect
+[Function]
+> z.inspect()
+{ state: 'rejected',
+  reason: [ReferenceError: results is not defined] }
+> var z = x.then(function(results) { return results; })
+undefined
+> z
+[object Object]
+> z.valueOf)
+... 
+> z.valueOf()
+{ '$': 
+   { 'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+     'xsi:schemaLocation': 'http://www.zillow.com/static/xsd/SearchResults.xsd http://www.zillowstatic.com/vstatic/361410a/static/xsd/SearchResults.xsd',
+     'xmlns:SearchResults': 'http://www.zillow.com/static/xsd/SearchResults.xsd' },
+  request: 
+   [ { address: [Object],
+       citystatezip: [Object] } ],
+  message: [ { text: [Object], code: [Object] } ],
+  response: [ { results: [Object] } ] }
+> z.valueOf().re
+return    
+
+readline  require   
+
+> z.valueOf().request
+[ { address: [ '20301 West Country Club Drive Apt 627' ],
+    citystatezip: [ 'Aventura, FL 33180' ] } ]
+> z.valueOf().response
+[ { results: [ [Object] ] } ]
+> z.valueOf().response[0]
+{ results: [ { result: [Object] } ] }
+> z.valueOf().response[0].results
+[ { result: [ [Object] ] } ]
+> z.valueOf().response[0].results[0].result
+[ { zpid: [ '44044767' ],
+    links: [ [Object] ],
+    address: [ [Object] ],
+    FIPScounty: [ '12086' ],
+    useCode: [ 'Condominium' ],
+    taxAssessmentYear: [ '2013' ],
+    taxAssessment: [ '105380.0' ],
+    yearBuilt: [ '1975' ],
+    finishedSqFt: [ '913' ],
+    bathrooms: [ '1.5' ],
+    bedrooms: [ '1' ],
+    lastSoldDate: [ '11/18/2006' ],
+    lastSoldPrice: [ [Object] ],
+    zestimate: [ [Object] ],
+    localRealEstate: [ [Object] ] } ]
+> z.valueOf().response[0].results[0].result[0]
+{ zpid: [ '44044767' ],
+  links: 
+   [ { homedetails: [Object],
+       graphsanddata: [Object],
+       mapthishome: [Object],
+       comparables: [Object] } ],
+  address: 
+   [ { street: [Object],
+       zipcode: [Object],
+       city: [Object],
+       state: [Object],
+       latitude: [Object],
+       longitude: [Object] } ],
+  FIPScounty: [ '12086' ],
+  useCode: [ 'Condominium' ],
+  taxAssessmentYear: [ '2013' ],
+  taxAssessment: [ '105380.0' ],
+  yearBuilt: [ '1975' ],
+  finishedSqFt: [ '913' ],
+  bathrooms: [ '1.5' ],
+  bedrooms: [ '1' ],
+  lastSoldDate: [ '11/18/2006' ],
+  lastSoldPrice: [ { _: '231200', '$': [Object] } ],
+  zestimate: 
+   [ { amount: [Object],
+       'last-updated': [Object],
+       oneWeekChange: [Object],
+       valueChange: [Object],
+       valuationRange: [Object],
+       percentile: [Object] } ],
+  localRealEstate: [ { region: [Object] } ] }
+> z.valueOf().response[0].results[0].result[0].zestimate[0].amount
+[ { _: '166891',
+    '$': { currency: 'USD' } } ]
+> z.valueOf().response[0].results[0].result[0].zestimate[0].amount
+[ { _: '166891',
+    '$': { currency: 'USD' } } ]
+> .exit
+Samuels-MacBook-Pro-2:real_estate_pricing samuelcabral$ nodemon
+15 Dec 16:50:02 - [nodemon] v1.2.1
+15 Dec 16:50:02 - [nodemon] to restart at any time, enter `rs`
+15 Dec 16:50:02 - [nodemon] watching: *.*
+15 Dec 16:50:02 - [nodemon] starting `node app.js`
+Executing (default): CREATE TABLE IF NOT EXISTS "users" ("id"   SERIAL , "email" VARCHAR(255), "firstName" VARCHAR(255), "lastName" VARCHAR(255), "phone" INTEGER, "password_digest" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));
+Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND a.attnum = ANY(ix.indkey) AND t.relkind = 'r' and t.relname = 'users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+Executing (default): CREATE TABLE IF NOT EXISTS "watchlists" ("id"   SERIAL , "street" VARCHAR(255), "citystatezip" VARCHAR(255), "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("id"));
+Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND a.attnum = ANY(ix.indkey) AND t.relkind = 'r' and t.relname = 'watchlists' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+**************************************************
+	 LISTENING ON: 
+		 localhost:3000
+**************************************************

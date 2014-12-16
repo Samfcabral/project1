@@ -45,13 +45,34 @@ request('http://www.zillow.com/webservice/GetZestimate.htm?zws-id=<X1-ZWz1dzv5l0
 //var zillow = new Zillow('X1-ZWz1dzv5l0hkaz_6h6e1')
 //var params = { address: '20301 West Country Club Drive Apt 627', city: 'Aventura', state: 'FL', zip: '33180'}
 //var x = zillow.getDeepSearchResults(params)
+//var z = x.then(function(results) { return results; })
+//var housePrice = z.valueOf().response[0].results[0].result[0].zestimate[0].amount
+
+
+
+//var Zillow = require('node-zillow')
+//var zillow = new Zillow('X1-ZWz1dzv5l0hkaz_6h6e1')
+//var params = { address: '20301 West Country Club Drive Apt 627', city: 'Aventura', state: 'FL', zip: '33180'}
+//var x = zillow.getDeepSearchResults(params)
+//var z = x.then(function(results) {
+//          res.render('/view', {amount: results.valueOf().response[0].results[0].result[0].zestimate[0].amount});
+//        })
+//var housePrice = z
+
+app.get('/route', function(req,res) {
+  var params = { address: '20301 West Country Club Drive Apt 627', city: 'Aventura', state: 'FL', zip: '33180'}
+var x = zillow.getDeepSearchResults(params)
+var z = x.then(function(results) {
+          res.render('/view', {amount: results.valueOf().response[0].results[0].result[0].zestimate[0].amount});
+        })
+})
+
+
 
 //Using promises
+// var promise = request();
+// promise.then(console.log, console.error);
 
-
-var promise = request();
-promise.then(console.log, console.error);
-
-var fs_readFile = Q.denodify(fs.readFile)
-var promise = fs_readFile('myfile.txt')
-promise.then(console.log, console.error)
+// var fs_readFile = Q.denodify(fs.readFile)
+// var promise = fs_readFile('myfile.txt')
+// promise.then(console.log, console.error)

@@ -5,6 +5,9 @@ var express = require("express"),
   session = require("cookie-session"),
   app = express();
 
+var Zillow = require('node-zillow');
+var zillow = new Zillow('X1-ZWz1dzv5l0hkaz_6h6e1');
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
@@ -119,38 +122,27 @@ app.get("/", function (req, res) {
   }
 });
 
-app.get("/users/show", function (req, res) {
-  res.render("users/show");
-});
-
 app.get("/users/login", function (req, res) {
   res.render("users/login");
 });
 
 // Create a handler to respond to GET requests
 // to our search page ("/search").
-app.get('/search', function(req, res){
-  // Grab the address title from the URL query string.
-  var address = req.query.address;
-  // Grab the address title from the URL query string.
-  var citystatezip = req.query.citystatezip;
-  // Build the URL that we're going to call.
-  // SAMPLE call from ZILLOW http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=<ZWSID>&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA
-  var url = "http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=<X1-ZWz1dzv5l0hkaz_6h6e1>&address=" + address + "citystatezip="+ citystatezip;
-  // Call the OMDB API searching for the movie.
-  request(url, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      // The body is a big string of JSON. We want to
-      // turn it into an Object so we can more easily
-      // dig into it.
-      var obj = JSON.parse(body);
-      console.log(body);
-      // Render a template (results.ejs) and pass it
-      // the search results and call them "movieList".
-      //http://localhost:3000/show?movieID=tt0301357
-      res.render("users/show", {adressList: obj.zestimate});
-    }
-  });
+app.get('/search', function(req,res) {
+    var address = req.query.address;
+    var city = req.query.city;
+    var state = req.query.state;
+    var zip = req.query.zip;
+    var params = { address: address, city: city, state: state, zip: zip}
+    console.log(params);
+    var x = zillow.getDeepSearchResults(params)
+    var z = x.then(function(results) {
+        res.render('users/show', {amount: results.valueOf().response[0].results[0].result[0].zestimate[0].amount});
+    })
+});
+
+app.get("users/show", function (req, res) {
+  res.render("users/show");
 });
 
 db.sequelize.sync().then(function() {
