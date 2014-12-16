@@ -33,12 +33,10 @@ app.use(passport.session());
 
 /*
 SERIALizING
-Turns relevant user data into a string to be 
-  stored as a cookie
+Turns relevant user data into a string to be stored as a cookie
 */
 passport.serializeUser(function(user, done){
   console.log("SERIALIZED JUST RAN!");
-
   done(null, user.id);
 });
 
@@ -78,7 +76,7 @@ app.post("/users", function (req, res) {
   var newUser = req.body.user;
   console.log("New User:", newUser);
   // CREATE a user and secure their password
-  db.user.createSecure(newUser.email, newUser.password, 
+  db.user.createSecure(newUser.email, newUser.password_digest, newUser.firstName, newUser.lastName, newUser.phone,
     function () {
       // if a user fails to create make them signup again
       res.redirect("/");
