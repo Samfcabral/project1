@@ -289,8 +289,7 @@ readline  require
 [ { results: [ [Object] ] } ]
 > z.valueOf().response[0]
 { results: [ { result: [Object] } ] }
-> z.valueOf().response[0].results
-[ { result: [ [Object] ] } ]
+> z.valueOf().response[0].results [ { result: [ [Object] ] } ]
 > z.valueOf().response[0].results[0].result
 [ { zpid: [ '44044767' ],
     links: [ [Object] ],

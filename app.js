@@ -140,7 +140,20 @@ app.get('/search', function(req,res) {
     var z = x.then(function(results) {
       var price = results.valueOf().response[0].results[0].result[0].zestimate[0].amount[0]._;
       console.log(price);
-      res.render('users/show', {amount: price});
+      var sqft = results.valueOf().response[0].results[0].result[0].finishedSqFt[0];
+      console.log(sqft);
+      var numRooms = results.valueOf().response[0].results[0].result[0].bedrooms[0];
+      console.log(numRooms);
+      var bathrooms = results.valueOf().response[0].results[0].result[0].bathrooms[0];
+      console.log(bathrooms);
+      var year = results.valueOf().response[0].results[0].result[0].yearBuilt[0];
+      console.log(year);
+      var soldDate = results.valueOf().response[0].results[0].result[0].lastSoldDate[0];
+      console.log(soldDate);
+      var soldPrice = results.valueOf().response[0].results[0].result[0].lastSoldPrice[0]._;
+      console.log(soldPrice);
+
+      res.render('users/show', {amount:price, bedrooms:numRooms, bathrooms:bathrooms, sqft:sqft, year:year, soldDate: soldDate, soldPrice:soldPrice});
     })
     console.log(z);
 });
