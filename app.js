@@ -133,28 +133,31 @@ app.get('/search', function(req,res) {
     var state = req.query.state;
     var zip = req.query.zip;
     var params = { address: address, city: city, state: state, zip: zip}
-    console.log(params);
-    var x = zillow.getDeepSearchResults(params); 
-    console.log(x);
-    var z = x.then(function(results) {
-      var price = results.valueOf().response[0].results[0].result[0].zestimate[0].amount[0]._;
-      console.log(price);
-      var sqft = results.valueOf().response[0].results[0].result[0].finishedSqFt[0];
-      console.log(sqft);
-      var numRooms = results.valueOf().response[0].results[0].result[0].bedrooms[0];
-      console.log(numRooms);
-      var bathrooms = results.valueOf().response[0].results[0].result[0].bathrooms[0];
-      console.log(bathrooms);
-      var year = results.valueOf().response[0].results[0].result[0].yearBuilt[0];
-      console.log(year);
-      var soldDate = results.valueOf().response[0].results[0].result[0].lastSoldDate[0];
-      console.log(soldDate);
-      var soldPrice = results.valueOf().response[0].results[0].result[0].lastSoldPrice[0]._;
-      console.log(soldPrice);
+    
+    zillow.getDeepSearchResults(params)
+    .then(function(results) {
+      console.log("RECIEVING RESULTS");
+      try {
+        var price = results.valueOf().response[0].results[0].result[0].zestimate[0].amount[0]._;
+        console.log(price);
+        var sqft = results.valueOf().response[0].results[0].result[0].finishedSqFt[0];
+        console.log(sqft);
+        var numRooms = results.valueOf().response[0].results[0].result[0].bedrooms[0];
+        console.log(numRooms);
+        var bathrooms = results.valueOf().response[0].results[0].result[0].bathrooms[0];
+        console.log(bathrooms);
+        var year = results.valueOf().response[0].results[0].result[0].yearBuilt[0];
+        console.log(year);
+        var soldDate = results.valueOf().response[0].results[0].result[0].lastSoldDate[0];
+        console.log(soldDate);
+        var soldPrice = results.valueOf().response[0].results[0].result[0].lastSoldPrice[0]._;
+        console.log(soldPrice);
+        res.render('users/show', {amount:price, bedrooms:numRooms, bathrooms:bathrooms, sqft:sqft, year:year, soldDate: soldDate, soldPrice:soldPrice});
+      } catch (error) {
+        res.redirect("/");
+      }
 
-      res.render('users/show', {amount:price, bedrooms:numRooms, bathrooms:bathrooms, sqft:sqft, year:year, soldDate: soldDate, soldPrice:soldPrice});
-    })
-    console.log(z);
+    });
 });
 
 app.get("users/show", function (req, res) {
