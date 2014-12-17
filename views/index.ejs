@@ -9,11 +9,15 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Mi Casa</title>
+    <title>Home | Mi Casa</title>
 
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <!-- Custom Edits -->
     <link rel="stylesheet" href="stylesheets/main.css">
+
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+
+    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js" rel="stylesheet"></script>
 
   </head>
 
@@ -40,12 +44,15 @@
             <% }else{ %>
             <li><a href="/logout">Logout</a></li>
             <li><a href="/show">Watch List</a></li>
+            <li><a href="#">Hello <%= currentUser %></a></li>
             <% }%>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
    <!-- End of Navigation --> 
+
+
 <div class="cover-container">
     <div class="site-wrapper">
 
@@ -58,16 +65,20 @@
             <p class="lead">Enter an address to calculate approximate cash flow for property.</p>
           </div>
 
-          <div>
-            <form method="GET" action="/search">
-              <input type="text" name="address" placeholder="Street address">
-              <input type="text" name="city" placeholder="City">
-              <input type="text" name="state" placeholder="State">
-              <input type="text" name="zip" placeholder="Zip Code">
-              <button class="btn btn-lg btn-primary">SEARCH NOW</button>
-            </form>
+<!-- Start of registration -->
+      <form class="form-signin" role="form" action="/search" method="GET">
+        <label for="street" class="sr-only">Address</label>
+        <input name="address" type="name" id="street" class="form-control" placeholder="Address" required autofocus>
+        <label for="city" class="sr-only">City</label>
+        <input name="city" type="name" id="city" class="form-control" placeholder="City" required>
+        <label for="state" class="sr-only">State</label>
+        <input name="state" type="name" id="state" class="form-control" placeholder="State" required>
+        <label for="zip" class="sr-only">Zip</label>
+        <input name="zip" type="name" id="zip" class="form-control" placeholder="Zip Code" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">SEARCH NOW</button>
+      </form>
 
-          </div>
+<!-- End of registration -->
 
         </div>
 

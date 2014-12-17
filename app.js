@@ -9,6 +9,8 @@ var express = require("express"),
 var Zillow = require('node-zillow');
 var zillow = new Zillow('X1-ZWz1dzv5l0hkaz_6h6e1');
 
+var greatSchools = "1yg7scs9gq1xffo5fvblrgxx";
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
@@ -63,15 +65,16 @@ passport.deserializeUser(function(id, done){
 
 // HOME PAGE
 app.get("/", function (req, res) {
+  console.log(req.user);
   res.render("index", {currentUser: req.user});
 });
 
 // WHEN SOMEONE WANTS THE SIGNUP PAGE
 app.get("/register", function (req, res) {
    if (!req.user) {
-    res.render("users/register");
+    res.render("users/register", {currentUser: req.user});
   } else {
-    res.redirect("/")
+    res.redirect("/", {currentUser: req.user});
   }
 });
 
@@ -100,9 +103,9 @@ app.post("/users", function (req, res) {
 // WHEN SOMEONE WANTS THE LOGIN PAGE
 app.get("/login", function (req, res) {
     if (req.user) {
-    res.redirect("/")
+    res.redirect("/", {currentUser: req.user});
   } else {
-    res.render("users/login");
+    res.render("users/login", {currentUser: req.user});
   }
 });
 
@@ -111,6 +114,17 @@ app.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login'
 }));
+
+app.get("/", function (req, res) {
+  console.log(req.user)
+  // req.user is the user currently logged in
+
+  if (req.user) {
+    res.render("sites/home", {user: req.user});
+  } else {
+    res.render("sites/home", {user: false});
+  }
+});
 
 app.get("/logout", function (req, res) {
   // LOG OUT
