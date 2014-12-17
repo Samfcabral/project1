@@ -154,7 +154,7 @@ app.get('/search', function(req,res) {
         console.log(soldPrice);
         res.render('users/show', {amount:price, bedrooms:numRooms, bathrooms:bathrooms, sqft:sqft, year:year, soldDate: soldDate, soldPrice:soldPrice});
       } catch (error) {
-        res.redirect("/");
+        res.redirect("/fail");
       }
 
     });
@@ -162,6 +162,10 @@ app.get('/search', function(req,res) {
 
 app.get("users/show", function (req, res) {
   res.render("users/show");
+});
+
+app.get("/fail", function (req, res) {
+  res.render("site/fail");
 });
 
 db.sequelize.sync().then(function() {
