@@ -63,12 +63,16 @@ passport.deserializeUser(function(id, done){
 
 // HOME PAGE
 app.get("/", function (req, res) {
-  res.render("index");
+  res.render("index", {currentUser: req.user});
 });
 
 // WHEN SOMEONE WANTS THE SIGNUP PAGE
-app.get("/users/register", function (req, res) {
-  res.render("users/register");
+app.get("/register", function (req, res) {
+   if (!req.user) {
+    res.render("users/register");
+  } else {
+    res.redirect("/")
+  }
 });
 
 // WHEN SOMEONE  SUBMITS A SIGNUP PAGE
@@ -95,7 +99,11 @@ app.post("/users", function (req, res) {
 
 // WHEN SOMEONE WANTS THE LOGIN PAGE
 app.get("/login", function (req, res) {
-  res.render("users/login");
+    if (req.user) {
+    res.redirect("/")
+  } else {
+    res.render("users/login");
+  }
 });
 
 // AUTHENTICATING A USER
@@ -110,20 +118,7 @@ app.get("/logout", function (req, res) {
   res.redirect("/");
 });
 
-app.get("/", function (req, res) {
-  console.log(req.user)
-  // REQ.USER IS THE USER CURRENTLY LOGGED IN
 
-  if (req.user) {
-    res.render("site/index", {user: req.user});
-  } else {
-    res.render("site/index", {user: false});
-  }
-});
-
-app.get("/users/login", function (req, res) {
-  res.render("users/login");
-});
 
 // Create a handler to respond to GET requests
 // to our search page ("/search").
@@ -136,7 +131,7 @@ app.get('/search', function(req,res) {
     
     zillow.getDeepSearchResults(params)
     .then(function(results) {
-      console.log("RECIEVING RESULTS");
+      console.log("RECEIVING RESULTS");
       try {
         var price = results.valueOf().response[0].results[0].result[0].zestimate[0].amount[0]._;
         console.log(price);
