@@ -3,6 +3,7 @@ var express = require("express"),
   db = require("./models"),
   passport = require("passport"),
   session = require("cookie-session"),
+  request = require("request"),
   app = express();
 
 var Zillow = require('node-zillow');
