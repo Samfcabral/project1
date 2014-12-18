@@ -2,7 +2,9 @@
 	background: url("/images/background.jpg");
 	background-repeat: no-repeat;
 	min-height: 1000px;
-
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
 }
 
 input[type="text"] {

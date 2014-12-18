@@ -16,12 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 //End of dependencies
 
-/*
-  What is the session?
-  It is the object that lives in our app
-    and records relevant info about users
-    who are signed in
-*/
+//Session
 app.use(session( {
   secret: 'thisismysecretkey',
   name: 'chocolate chip',
@@ -176,7 +171,6 @@ app.get('/search', function(req,res) {
       } catch (error) {
         res.redirect("/fail");
       }
-
     });
 });
 
@@ -199,10 +193,18 @@ app.get("/fail", function (req, res) {
   res.render("site/fail");
 });
 
-// db.sequelize.sync().then(function() {
-  var server = app.listen(3000, function() {
+db.sequelize.sync().then(function() {
+  var server = app.listen(process.env.PORT || 3000, function() {
     console.log(new Array(51).join("*"));
     console.log("\t LISTENING ON: \n\t\t localhost:3000");
     console.log(new Array(51).join("*")); 
   });
-// });
+});
+
+
+
+
+
+
+
+
