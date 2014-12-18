@@ -12,6 +12,9 @@ module.exports = {
         type: DataTypes.STRING,
         unique: true
       },
+      password_digest: {
+        type: DataTypes.STRING
+      },
       firstName: {
         type: DataTypes.STRING
       },
@@ -20,9 +23,6 @@ module.exports = {
       },
       phone: {
         type: DataTypes.INTEGER
-      },
-      password_digest: {
-        type: DataTypes.STRING
       },
       createdAt: {
         allowNull: false,

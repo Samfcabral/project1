@@ -39,12 +39,12 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
             <% if (!currentUser)  {%> 
-            <li><a href="/register">Register</a></li>
-            <li><a href="/login">Login</a></li>
+              <li><a href="/register">Register</a></li>
+              <li><a href="/login">Login</a></li>
             <% }else{ %>
-            <li><a href="/logout">Logout</a></li>
-            <li><a href="/show">Watch List</a></li>
-            <li><a href="#">Hello <%= currentUser %></a></li>
+              <li><a href="/logout">Logout</a></li>
+              <li><a href="/show">Watch List</a></li>
+              <li><a href="#">Hello <%= currentUser %></a></li>
             <% }%>
           </ul>
         </div><!--/.nav-collapse -->
@@ -52,14 +52,10 @@
     </nav>
    <!-- End of Navigation --> 
 
-
+<div class="container">
 <div class="cover-container">
     <div class="site-wrapper">
-
       <div class="site-wrapper-inner">
-
-        
-
           <div class="inner cover">
             <h1 class="cover-heading">FIND YOUR NEXT HOME</h1>
             <p class="lead">Enter an address to calculate approximate cash flow for property.</p>
@@ -80,11 +76,10 @@
 
 <!-- End of registration -->
 
-        </div>
-
       </div>
-
-    </div><!-- /container -->
+    </div>
+  </div>
+</div><!-- /container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

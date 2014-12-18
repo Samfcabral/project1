@@ -20,3 +20,13 @@ input[type="text"] {
 	color: white;
 	text-align: center;
 }
+
+.zillowLogo {
+	float: right;
+}
+
+.logey {
+	background: url("/images/backgroundR.jpg");
+	background-repeat: no-repeat;
+	min-height: 1000px;
+}
