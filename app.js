@@ -78,6 +78,13 @@ app.get("/register", function (req, res) {
   }
 });
 
+app.get("/users/:id", function (req, res) {
+  console.log("USERSSS SHOW")
+  req.user.getWatchlists().then(function (list) {
+    res.render("users/profile", {watchlist: list});
+  })
+
+});
 // WHEN SOMEONE  SUBMITS A SIGNUP PAGE
 app.post("/users", function (req, res) {
   console.log("POST /users");
@@ -115,16 +122,16 @@ app.post('/login', passport.authenticate('local', {
   failureRedirect: '/login'
 }));
 
-app.get("/", function (req, res) {
-  console.log(req.user)
-  // req.user is the user currently logged in
+// app.get("/", function (req, res) {
+//   console.log(req.user)
+//   // req.user is the user currently logged in
 
-  if (req.user) {
-    res.render("sites/home", {user: req.user});
-  } else {
-    res.render("sites/home", {user: false});
-  }
-});
+//   if (req.user) {
+//     res.render("sites/home", {user: req.user});
+//   } else {
+//     res.render("sites/home", {user: false});
+//   }
+// });
 
 app.get("/logout", function (req, res) {
   // LOG OUT
@@ -161,7 +168,9 @@ app.get('/search', function(req,res) {
         console.log(soldDate);
         var soldPrice = results.valueOf().response[0].results[0].result[0].lastSoldPrice[0]._;
         console.log(soldPrice);
-        res.render('users/show', {amount:price, bedrooms:numRooms, bathrooms:bathrooms, sqft:sqft, year:year, soldDate: soldDate, soldPrice:soldPrice});
+        console.log("CURRENT USER ID", req.user.id);
+        console.log("PARAMS", params.address)
+        res.render('users/show', {currentUser: req.user, params: params, amount:price, bedrooms:numRooms, bathrooms:bathrooms, sqft:sqft, year:year, soldDate: soldDate, soldPrice:soldPrice});
       } catch (error) {
         res.redirect("/fail");
       }
@@ -169,18 +178,29 @@ app.get('/search', function(req,res) {
     });
 });
 
-app.get("users/show", function (req, res) {
-  res.render("users/show");
+app.post("/watchlist", function (req, res) {
+  if (req.user) {
+    db.watchlist.create({
+      street: req.body.watchlist.street,
+      userId: req.user.id
+    }).then(function (watchlist) {
+      res.redirect("/users/"+req.user.id);
+    })
+  } else { 
+    res.redirect("/");
+  }
 });
+
+
 
 app.get("/fail", function (req, res) {
   res.render("site/fail");
 });
 
-db.sequelize.sync().then(function() {
+// db.sequelize.sync().then(function() {
   var server = app.listen(3000, function() {
     console.log(new Array(51).join("*"));
     console.log("\t LISTENING ON: \n\t\t localhost:3000");
     console.log(new Array(51).join("*")); 
   });
-});
+// });

@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        
+        this.hasMany(models.watchlist)
       },
       findByEmail: function (email) {
         return this.find({
@@ -56,7 +56,7 @@ module.exports = function(sequelize, DataTypes) {
         var hash = bcrypt.hashSync(password, salt);
         return hash;
       },
-      createSecure: function (firstName, lastName, email, password, error, success) {
+      createSecure: function (email, password, firstName, lastName, phone, error, success) {
         var hash = this.encryptPassword(password);
         this.create({
           firstName: firstName,
