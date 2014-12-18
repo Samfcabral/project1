@@ -72,9 +72,9 @@ app.get("/", function (req, res) {
 // WHEN SOMEONE WANTS THE SIGNUP PAGE
 app.get("/register", function (req, res) {
    if (!req.user) {
-    res.render("users/register", {currentUser: req.user});
+    res.render("users/register");
   } else {
-    res.redirect("/", {currentUser: req.user});
+    res.redirect("/");
   }
 });
 
@@ -110,7 +110,7 @@ app.post("/users", function (req, res) {
 // WHEN SOMEONE WANTS THE LOGIN PAGE
 app.get("/login", function (req, res) {
     if (req.user) {
-    res.redirect("/", {currentUser: req.user});
+    res.redirect("/");
   } else {
     res.render("users/login", {currentUser: req.user});
   }
