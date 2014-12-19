@@ -165,7 +165,6 @@ app.get('/search', function(req,res) {
         console.log(soldDate);
         var soldPrice = results.valueOf().response[0].results[0].result[0].lastSoldPrice[0]._;
         console.log(soldPrice);
-        console.log("CURRENT USER ID", req.user.id);
         console.log("PARAMS", params.address)
         res.render('users/show', {currentUser: req.user, params: params, amount:price, bedrooms:numRooms, bathrooms:bathrooms, sqft:sqft, year:year, soldDate: soldDate, soldPrice:soldPrice});
       } catch (error) {
