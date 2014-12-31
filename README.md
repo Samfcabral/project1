@@ -12,7 +12,7 @@ This is my first project for General Assembly's Web Development Immersive progra
   <li>External APIs. Use an external API to add functionality to your app.</li>
   <li>Heroku. Deploy your code to Heroku.</li>
   <li>Authentication Your site should have an authentication component.</li>
-  <li>Authorization Where appropriate, you should implement an authorization scheme. For example, if you make a blog app, other users should not be able to delete the posts that you create.<li>
+  <li>Authorization Where appropriate, you should implement an authorization scheme. For example, if you make a blog app, other users should not be able to delete the posts that you create.</li>
 
 <h3>Here is what I set out to do:</h3>
 <p>Create a site where users can type in an address and the site will render the estimated value of the real estate property found at that address using Zillow's API. Users will be able to save searched properties to a "watch list" which they will only be able to access at a later time upon logging in.</p>
