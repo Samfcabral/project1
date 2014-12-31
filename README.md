@@ -7,7 +7,7 @@ This is my first project for General Assembly's Web Development Immersive progra
 
 <ul>
   <li>Models. Your app should have at least 2 models with an association.</li>
-  <li>Views. Use partials to DRY (Donâ€™t Repeat Yourself) up your views.</li>
+  <li>Views. Use partials to up your views.</li>
   <li>Handles invalid data. Your models should validate data and handle incorrect inputs. Validate sign up information, verify valid email addresses, and secure passwords.</li>
   <li>External APIs. Use an external API to add functionality to your app.</li>
   <li>Heroku. Deploy your code to Heroku.</li>
