@@ -10,7 +10,7 @@ This is my first project for General Assembly's Web Development Immersive progra
   <li>Views. Use partials to DRY (Donâ€™t Repeat Yourself) up your views.</li>
   <li>Handles invalid data. Your models should validate data and handle incorrect inputs. Validate sign up information, verify valid email addresses, and secure passwords.</li>
   <li>External APIs. Use an external API to add functionality to your app.</li>
-  <li>Heroku. Deploy your code to Heroku. We will be covering this early next week.</li>
+  <li>Heroku. Deploy your code to Heroku.</li>
   <li>Authentication Your site should have an authentication component.</li>
   <li>Authorization Where appropriate, you should implement an authorization scheme. For example, if you make a blog app, other users should not be able to delete the posts that you create.<li>
 
