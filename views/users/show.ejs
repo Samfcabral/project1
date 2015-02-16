@@ -52,30 +52,38 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
+      <div class="row">
+      <br>
+      <br>
+      <br>
         <h1>Property details</h1>
-        <p>Zestimate®: $<%= amount %> </p>
-        <p>Square Footage: <%= sqft %> </p>
-        <p>Bedrooms: <%= bedrooms %> </p>
-        <p>Bathrooms: <%= bathrooms %> </p>
-        <p>Year: <%= year %> </p>
-        <p>Last Sold: <%= soldDate %> </p>
-        <p>Last Price: $<%= soldPrice %> </p> 
+        <h4>Zestimate®: $<%= amount %>      
+          <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/Zillowlogo_150x40_rounded.gif" width="150" height="40" alt="Zillow Real Estate Search" />
+        </h4>
+        <h4>Square Footage: <%= sqft %> </h4>
+        <h4>Bedrooms: <%= bedrooms %> </h4>
+        <h4>Bathrooms: <%= bathrooms %> </h4>
+        <h4>Year: <%= year %> </h4>
+        <h4>Last Sold: <%= soldDate %> </h4>
+        <h4>Last Price: $<%= soldPrice %> </h4> 
       </div>
 
-      <div>
-      <form action="/watchlist" method="post">
-        <input style="display:none;" type="text" name="watchlist[street]" value="<%= params.address %>" />
-        <button class="btn btn-lg btn-primary">SAVE TO WATCH LIST</button>
-        </form>
+      <div class="row">
+        <form action="/watchlist" method="post">
+          <input style="display:none;" type="text" name="watchlist[street]" value="<%= params.address %>" />
+          <% if (currentUser)  {%> 
+          <button class="btn btn-lg btn-primary">SAVE TO WATCH LIST</button>
+          <% }%>
+          </form>
       </div>
 
-      <div class="zillowLogo">
-        <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/Zillowlogo_150x40_rounded.gif" width="150" height="40" alt="Zillow Real Estate Search" />
-      </div>
+    <div class="row">
+        
 
 
-    </div> <!-- /container -->
+    </div>
+
+</div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
