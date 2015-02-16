@@ -95,7 +95,7 @@ app.post("/users", function (req, res) {
       // when successfully created log the user in
       // req.login is given by the passport
       req.login(user, function(){
-        // after login redirect show page
+        // after login redirect to home
         console.log("Id: ", user.id)
         res.redirect("/");
       });
@@ -199,11 +199,3 @@ db.sequelize.sync().then(function() {
     console.log(new Array(51).join("*")); 
   });
 });
-
-
-
-
-
-
-
-
