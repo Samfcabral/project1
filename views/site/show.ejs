@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Property Details | Mi Casa</title>
+
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+
+  <!-- Custom Edits -->
+  <link rel="stylesheet" href="/stylesheets/main.css">
+
+  </head>
+
+  <body>
+  <!-- Start of navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">  
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Mi Casa</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <% if (!currentUser)  {%> 
+              <li><a href="/register">Register</a></li>
+              <li><a href="/login">Login</a></li>
+            <% }else{ %>
+              <li><a href="/logout">Logout</a></li>
+              <li><a href="/show">Watch List</a></li>
+              <li><a href="#">Hello <%= currentUser.firstName %></a></li>
+            <% }%>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+   <!-- End of Navigation --> 
+
+
+<div class="container">
+
+  <!-- Main component for a primary marketing message or call to action -->
+  <div class="row">
+    <br>
+    <br>
+    <br>
+    <h1>Property details</h1>
+    <h4>Zestimate®: $<%= amount %>      
+      <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/Zillowlogo_150x40_rounded.gif" width="150" height="40" alt="Zillow Real Estate Search" />
+    </h4>
+    <h4>Square Footage: <%= sqft %> </h4>
+    <h4>Bedrooms: <%= bedrooms %> </h4>
+    <h4>Bathrooms: <%= bathrooms %> </h4>
+    <h4>Year: <%= year %> </h4>
+    <h4>Last Sold: <%= soldDate %> </h4>
+    <h4>Last Price: $<%= soldPrice %> </h4> 
+  </div>
+
+  <div class="row">
+    <form action="/watchlist" method="post">
+      <input style="display:none;" type="text" name="watchlist[street]" value="<%= params.address %>" />
+      <% if (currentUser)  {%> 
+      <button class="btn btn-lg btn-primary">SAVE TO WATCH LIST</button>
+      <% }%>
+    </form>
+  </div>
+  
+  <div class="row">
+    <div>
+      <h3>Calculate Cash Flow</h3>
+    </div>
+
+    <div>
+      <form class="cf" method="GET" action="/cashFlow">
+        <h4>Mortgage Costs</h4>
+          <h5><input type="text" name="principal" placeholder="Loan Amount"></h5>
+          <h5><input type="text" name="years" placeholder="Loan Term (in years)"></h5>
+          <h5><input type="text" name="interest" placeholder="Interest Rate"></h5>
+          <br>
+        <h4>Estimated Expenses</h4>
+          <h5><input type="text" name="tax" placeholder="Property Tax"></h5>
+          <h5><input type="text" name="hoa" placeholder="HOA"></h5>
+          <h5><input type="text" name="insurance" placeholder="Insurance"></h5>
+          <br>
+        <h4>Estimated Income</h4>
+          <h5><input type="text" name="rent" placeholder="Estimated Rent"></h5>
+          <br>
+        <button id="clicker" type="submit" class="btn btn-lg btn-primary">Calculate Cash Flow</button>
+      </form>
+    </div>
+    <div>$<span class="result">0.00</span></div>
+
+  </div>
+
+</div> <!-- /container -->
+
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/javascripts/calculate.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>
