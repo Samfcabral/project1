@@ -160,27 +160,6 @@ app.get('/search', function (req, res) {
     });
 });
 
-// app.get("/cashFlow", function (req, res) {
-//   var findPayment = function (principal, interest, years) {
-//     var payment = (principal * interest) / (1 - Math.pow(1 + interest, -years));
-//     console.log("this is my payment ", payment);
-//     return payment;
-//   };
-
-//   var principal = req.query.principal;
-//   var term = req.query.years;
-//   var interest = req.query.interest;
-//   var monthlyPayment = findPayment(principal, interest / 12, term * 12);
-//   var taxes = req.query.taxes;
-//   var hoa = req.query.hoa;
-//   var insurance = req.query.insurance;
-//   var rent = req.query.rent;
-//   var totalCashflow = rent - monthlyPayment - taxes - hoa - insurance;
-
-//   console.log("This should be my " + monthlyPayment);
-//   console.log(totalCashflow);
-// });
-
 app.post("/watchlist", function (req, res) {
   if (req.user) {
     db.watchlist.create({
