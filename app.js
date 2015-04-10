@@ -92,9 +92,9 @@ app.post("/users", function (req, res) {
     function (err, user) {
       // when successfully created log the user in
       // req.login is given by the passport
-      req.login(user, function () {
+      req.login(user, function(){
         // after login redirect to home
-        console.log("Id: ", user.id);
+        console.log("Id: ", user.id)
         res.redirect("/");
       });
     });
@@ -152,6 +152,7 @@ app.get('/search', function (req, res) {
         console.log(soldPrice);
         console.log("PARAMS", params.address);
         res.render('site/show', {currentUser: req.user, params: params, amount: price, bedrooms: numRooms, bathrooms: bathrooms, sqft: sqft, year: year, soldDate: soldDate, soldPrice: soldPrice});
+
       } catch (error) {
         res.redirect("/fail");
       }

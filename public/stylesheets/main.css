@@ -15,6 +15,7 @@
 .cover-heading {
 	color: #2a2a2a;
   text-shadow: 0px 0px 40px rgba(255, 255, 255, 5);
+	color: #555;
 	text-align: center;
 }
 
@@ -22,6 +23,7 @@
 	color: #2a2a2a;
   font-style: italic;
   text-shadow: 0px 0px 15px rgba(255, 255, 255, 5);
+	color: #555;
 	text-align: center;
 }
 
@@ -42,3 +44,14 @@
 .middle-row {
   background-color: #dae8f5;
 }
+.logey {
+	background: url("/images/backgroundR.jpg");
+	background-repeat: no-repeat;
+	min-height: 1000px;
+}
+.navbar {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
