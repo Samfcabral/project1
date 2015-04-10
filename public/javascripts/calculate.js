@@ -19,7 +19,7 @@ $(function () {
     $(this).serializeArray().forEach(function (el, id, arr) {
       obj[el.name] = Number(el.value);
     });
-    $(".result").html("$" + cashFlow(obj) + " estimated cash flow");
+    $(".result").html("$" + cashFlow(obj) + " estimated monthly cash flow");
 
   });
 
