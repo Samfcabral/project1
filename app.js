@@ -9,8 +9,6 @@ var express = require("express"),
 var Zillow = require('node-zillow');
 var zillow = new Zillow('X1-ZWz1dzv5l0hkaz_6h6e1');
 
-var greatSchools = "1yg7scs9gq1xffo5fvblrgxx";
-
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
