@@ -44,54 +44,61 @@
     </nav>
    <!-- End of Navigation --> 
 
+<div class="top-row">
+  <div class="container">
+    <div class="row">
+    <div class="col-xs-12">
+      <br>
+      <br>
+      <br>
+      <h1>Property details</h1>
+      <h4>Zestimate®: $<%= amount %>      
+        <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/Zillowlogo_150x40_rounded.gif" width="150" height="40" alt="Zillow Real Estate Search" />
+      </h4>
+      <h4>Square Footage: <%= sqft %> </h4>
+      <h4>Bedrooms: <%= bedrooms %> </h4>
+      <h4>Bathrooms: <%= bathrooms %> </h4>
+      <h4>Year: <%= year %> </h4>
+      <h4>Last Sold: <%= soldDate %> </h4>
+      <h4>Last Price: $<%= soldPrice %> </h4> 
 
-<div class="container">
-  <div class="row">
-  <div class="col-xs-12 top-row">
-    <br>
-    <br>
-    <br>
-    <h1>Property details</h1>
-    <h4>Zestimate®: $<%= amount %>      
-      <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/Zillowlogo_150x40_rounded.gif" width="150" height="40" alt="Zillow Real Estate Search" />
-    </h4>
-    <h4>Square Footage: <%= sqft %> </h4>
-    <h4>Bedrooms: <%= bedrooms %> </h4>
-    <h4>Bathrooms: <%= bathrooms %> </h4>
-    <h4>Year: <%= year %> </h4>
-    <h4>Last Sold: <%= soldDate %> </h4>
-    <h4>Last Price: $<%= soldPrice %> </h4> 
-
-    <form action="/watchlist" method="post">
-      <input style="display:none;" type="text" name="watchlist[street]" value="<%= params.address %>" />
-      <% if (currentUser)  {%> 
-      <button class="btn btn-lg btn-primary">SAVE TO WATCH LIST</button>
-      <% }%>
-    </form>
-    <br>
+      <form action="/watchlist" method="post">
+        <input style="display:none;" type="text" name="watchlist[street]" value="<%= params.address %>" />
+        <% if (currentUser)  {%> 
+        <button class="btn btn-lg btn-primary">SAVE TO WATCH LIST</button>
+        <% }%>
+      </form>
+      <br>
+    </div>
   </div>
+</div>
+</div>
 
-    <div class="col-xs-12 middle-row">
-
+<div class="middle-row">
+  <div class="container">
+    <div class="col-xs-12">
       <div>
         <h2>Calculate Cash Flow</h2>
       </div>
       <div>
         <form class="cf" method="GET" action="/cashFlow">
           <h4>Estimated Income</h4>
-            <h5><input type="text" name="rent" placeholder="Estimated Rent"></h5>
+            <h5><input type="text" name="rent">  Estimated Rent (per month)</h5>
           <h4>Mortgage Costs</h4>
-            <h5><input type="text" name="principal" placeholder="Loan Amount"></h5>
-            <h5><input type="text" name="years" placeholder="Loan Term (in years)"></h5>
-            <h5><input type="text" name="interest" placeholder="Interest Rate"></h5>
+            <h5><input type="text" name="principal">  Total Loan Amount</h5>
+            <h5><input type="text" name="years">  Loan Term (in years)</h5>
+            <h5><input type="text" name="interest">% Interest Rate</h5>
           <h4>Estimated Expenses</h4>
-            <h5><input type="text" name="tax" placeholder="Property Tax"></h5>
-            <h5><input type="text" name="hoa" placeholder="HOA"></h5>
-            <h5><input type="text" name="insurance" placeholder="Insurance"></h5>
+            <h5><input type="text" name="tax">  Property Tax (per year)</h5>
+            <h5><input type="text" name="hoa">  HOA (per month)</h5>
+            <h5><input type="text" name="insurance">  Insurance (per year)</h5>
             <div><h2><span class="result"></span></h2></div>
             <br>
           <button id="clicker" type="submit" class="btn btn-lg btn-primary">Calculate Cash Flow</button>
         </form>
+        <br>
+        <br>
+        <br>
       </div>
     </div>
   </div>

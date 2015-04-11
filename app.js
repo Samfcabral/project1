@@ -138,6 +138,7 @@ app.get('/search', function (req, res) {
       try {
         var price = results.valueOf().response[0].results[0].result[0].zestimate[0].amount[0]._;
         console.log(price);
+        price = price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
         var sqft = results.valueOf().response[0].results[0].result[0].finishedSqFt[0];
         console.log(sqft);
         var numRooms = results.valueOf().response[0].results[0].result[0].bedrooms[0];
@@ -149,6 +150,7 @@ app.get('/search', function (req, res) {
         var soldDate = results.valueOf().response[0].results[0].result[0].lastSoldDate[0];
         console.log(soldDate);
         var soldPrice = results.valueOf().response[0].results[0].result[0].lastSoldPrice[0]._;
+        soldPrice = soldPrice.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
         console.log(soldPrice);
         console.log("PARAMS", params.address);
         res.render('site/show', {currentUser: req.user, params: params, amount: price, bedrooms: numRooms, bathrooms: bathrooms, sqft: sqft, year: year, soldDate: soldDate, soldPrice: soldPrice});
