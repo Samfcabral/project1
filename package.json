@@ -20,7 +20,7 @@
     "bcrypt": "^0.8.0",
     "body-parser": "^1.10.0",
     "cookie-session": "^1.1.0",
-    "ejs": "^1.0.0",
+    "ejs": "^2.5.5",
     "express": "^4.10.5",
     "method-override": "^2.3.0",
     "node-zillow": "0.0.2",
